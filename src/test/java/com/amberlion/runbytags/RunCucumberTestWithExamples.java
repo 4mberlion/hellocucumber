@@ -1,4 +1,4 @@
-package com.amberlion;
+package com.amberlion.runbytags;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -9,8 +9,8 @@ import org.junit.runner.RunWith;
         plugin = {"pretty"},
         features = {"src/main/resources/features"},
         glue = {"com.amberlion"},
-        tags = "not @Ignore"
+        tags = "@WithExamples"
 )
-public class RunCucumberTestWithIgnore {
+public class RunCucumberTestWithExamples {
 
 }
