@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         plugin = {"pretty", "html:target/reports/cucumber-html-report.html",
                 "json:cucumber.json"},
         features = {"src/main/resources/features"},
-        glue = {"com.amberlion.stepdefinition"}
+        glue = {"com.amberlion"}
 )
 public class RunCucumberPrettyTestReport {
 

@@ -8,9 +8,9 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"pretty"},
         features = {"src/main/resources/features"},
-        glue = {"com.amberlion.stepdefinition"},
-        tags = "@WithExamples"
+        glue = {"com.amberlion"},
+        tags = "@Single"
 )
-public class RunCucumberTestWithExamples {
+public class RunCucumberTestSingle {
 
 }

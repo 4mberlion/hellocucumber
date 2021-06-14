@@ -8,9 +8,9 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"pretty"},
         features = {"src/main/resources/features"},
-        glue = {"com.amberlion.stepdefinition"},
-        tags = "@Single"
+        glue = {"com.amberlion"},
+        tags = "not @Ignore"
 )
-public class RunCucumberTestSingle {
+public class RunCucumberTestWithIgnore {
 
 }

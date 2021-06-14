@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"pretty"},
         features = {"src/main/resources/features"},
-        glue = {"com.amberlion.stepdefinition"},
+        glue = {"com.amberlion"},
         tags = "@Single or @WithExamples"
 )
 public class RunCucumberTestOr {
