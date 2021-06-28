@@ -20,6 +20,7 @@ public class StepDefinitions {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         driver = new ChromeDriver();
     }
+
     @When("navigate to {string}")
     public void navigate_to_link(String link) {
         driver.navigate().to("https://"+link);
@@ -40,6 +41,7 @@ public class StepDefinitions {
         ((JavascriptExecutor) driver).executeScript("window.open(arguments[0])", String.valueOf(Paths.get(path, "horse.html")));
         driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL +"t");
     }
+
     @Then("Close the instance with id {string}")
     public void close_the_instance_with_id(String id) {
         for(String handle : driver.getWindowHandles()) {
