@@ -5,3 +5,6 @@ Feature: Java handles files
     Given A new directory is created
     When A file is created
     Then The file should exist
+
+  Scenario: Reading properties file
+    Given A properties file

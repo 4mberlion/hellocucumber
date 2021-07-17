@@ -7,6 +7,7 @@ import org.junit.Assert;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 public class Files {
 
@@ -34,5 +35,11 @@ public class Files {
     @Then("The file should exist")
     public void the_file_should_exist() {
         Assert.assertTrue("Directory is not present", file.exists());
+    }
+
+    @Given("A properties file")
+    public void aPropertiesFile() {
+        String rb = ResourceBundle.getBundle("com.amberlion.config").getString("animal");
+        System.out.println(rb);
     }
 }
