@@ -19,6 +19,8 @@ public class StepDefinitions {
     public void running_chrome_browser() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         driver = new ChromeDriver();
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("console.log('lololo')");
     }
 
     @When("navigate to {string}")
