@@ -79,8 +79,7 @@ public class StepDefinitions {
                 driver.findElement(By.id("visible")).click();
             }
         }
-        MyTask task = new MyTask();
-        Thread sleepingThread = new Thread(task);
+        Thread sleepingThread = new Thread(new MyTask());
         sleepingThread.start();
         driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         new WebDriverWait(driver, 30)
