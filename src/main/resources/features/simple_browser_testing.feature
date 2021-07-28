@@ -12,3 +12,8 @@ Feature: Utilise chromedriver
     When Many window instances are open
     Then Close the instance with id "onion"
     Then Close the instance with id "horse"
+
+  Scenario: Wait test
+    Given running chrome browser
+    When Window with disappearing button appears
+    And Waits until button appears

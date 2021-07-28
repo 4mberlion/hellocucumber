@@ -1,15 +1,16 @@
 package com.amberlion.selenium.stepdefinition;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.nio.file.Paths;
+import java.util.concurrent.TimeUnit;
 
 public class StepDefinitions {
 
@@ -52,5 +53,33 @@ public class StepDefinitions {
                 driver.close();
             }
         }
+    }
+
+    @When("Window with disappearing button appears")
+    public void windowWithDisappearingButtonAppears() {
+        String path = Paths.get("src","main", "resources", "htmls").toAbsolutePath().toString();
+        driver.navigate().to(String.valueOf(Paths.get(path, "toggling_visibility.html")));
+    }
+
+    @And("Waits until button appears")
+    public void waitsUntilButtonAppears() {
+        class MyTask implements Runnable {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                driver.findElement(By.id("visible")).click();
+            }
+        }
+        MyTask task = new MyTask();
+        Thread sleepingThread = new Thread(task);
+        sleepingThread.start();
+        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        new WebDriverWait(driver, 30)
+                .until(ExpectedConditions.elementToBeClickable(By.id("intangible")));
+        driver.findElement(By.id("intangible")).click();
     }
 }

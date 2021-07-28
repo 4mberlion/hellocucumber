@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <button id="visible" onclick="myFunction()">Click Me</button>
+  <button style="display: none" id="intangible" onclick="myFunction()">Hiding button</button>
+
+<script>
+  function myFunction() {
+    var x = document.getElementById("intangible");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>
