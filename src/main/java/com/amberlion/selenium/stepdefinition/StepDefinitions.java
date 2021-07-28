@@ -47,12 +47,17 @@ public class StepDefinitions {
 
     @Then("Close the instance with id {string}")
     public void close_the_instance_with_id(String id) {
-        for(String handle : driver.getWindowHandles()) {
-            driver.switchTo().window(handle);
-            if(!driver.findElements(By.id(id)).isEmpty()) {
-                driver.close();
-            }
-        }
+        driver.getWindowHandles().stream()
+                .map(handle -> driver.switchTo().window(handle))
+                .filter(x->!driver.findElements(By.id(id)).isEmpty())
+                .findFirst();
+        driver.close();
+//        for(String handle : driver.getWindowHandles()) {
+//            driver.switchTo().window(handle);
+//            if(!driver.findElements(By.id(id)).isEmpty()) {
+//                driver.close();
+//            }
+//        }
     }
 
     @When("Window with disappearing button appears")
